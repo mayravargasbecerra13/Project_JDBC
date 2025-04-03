@@ -9,5 +9,8 @@ package com.mycompany.projec_jdbc;
  * @author Personal
  */
 public class inicio {
-    
+    public static void main(String[] args){
+    FormAlumnos objetoFormulario = new FormAlumnos();
+    objetoFormulario.setVisible(true);
+    }
 }
