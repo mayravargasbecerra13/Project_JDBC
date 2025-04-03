@@ -9,5 +9,7 @@ package com.mycompany.projec_jdbc;
  * @author Personal
  */
 public class CAlumnos {
-    
+    int codigo;
+    String nombreAlumno;
+    String  apellidoAlumno;
 }
