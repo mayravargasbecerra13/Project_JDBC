@@ -13,8 +13,12 @@ public class FormAlumnos extends javax.swing.JFrame {
     /**
      * Creates new form FormAlumnos
      */
+    
     public FormAlumnos() {
         initComponents();
+        
+        CConexion objetoCConexion = new CConexion();
+        objetoCConexion.establecerConexion();
     }
 
     /**
@@ -52,6 +56,11 @@ public class FormAlumnos extends javax.swing.JFrame {
         jLabel3.setText("Apellido");
 
         Btnguardar.setText("Guardar");
+        Btnguardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnguardarActionPerformed(evt);
+            }
+        });
 
         btnmodificar.setText("Modificar");
 
@@ -171,6 +180,10 @@ public class FormAlumnos extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BtnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnguardarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnguardarActionPerformed
 
     /**
      * @param args the command line arguments
