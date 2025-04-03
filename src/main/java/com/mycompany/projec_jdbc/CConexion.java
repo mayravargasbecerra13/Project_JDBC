@@ -4,10 +4,40 @@
  */
 package com.mycompany.projec_jdbc;
 
+import com.mysql.cj.jdbc.Driver;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Personal
  */
 public class CConexion {
+    Connection conectar = null;
+    
+    String usuario = "root";
+    String Contrasenia = "1234";
+    String db = "dbescuela";
+    String ip = "localhost";
+    String puerto = "33306";
+    
+    String cadena = "jdbc:msql://"+ip+":"+puerto+"/"+db;
+    
+    public Connection establecerConexion(){
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            
+            conectar = DriverManager.getConnection(cadena, usuario, Contrasenia);
+            
+            JOptionPane.showMessageDialog(null, "La conexión se realizo con exito");
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al conectarse con la base de datos" + e.toString());
+        }
+    return conectar;
+}
     
 }
+
+

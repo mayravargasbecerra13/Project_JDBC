@@ -12,4 +12,29 @@ public class CAlumnos {
     int codigo;
     String nombreAlumno;
     String  apellidoAlumno;
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+
+    public String getNombreAlumno() {
+        return nombreAlumno;
+    }
+
+    public void setNombreAlumno(String nombreAlumno) {
+        this.nombreAlumno = nombreAlumno;
+    }
+
+    public String getApellidoAlumno() {
+        return apellidoAlumno;
+    }
+
+    public void setApellidoAlumno(String apellidoAlumno) {
+        this.apellidoAlumno = apellidoAlumno;
+    }
+    
 }
