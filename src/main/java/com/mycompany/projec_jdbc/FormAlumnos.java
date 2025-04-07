@@ -17,6 +17,9 @@ public class FormAlumnos extends javax.swing.JFrame {
     public FormAlumnos() {
         initComponents();
         
+        CAlumnos objetAlumnos = new CAlumnos();
+        objetAlumnos.MostrarAlumnos(TablaTotalAlumnos);
+        
         CConexion objetoCConexion = new CConexion();
         objetoCConexion.establecerConexion();
     }
@@ -43,7 +46,7 @@ public class FormAlumnos extends javax.swing.JFrame {
         btnlimpiar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        TablaTotalAlumnos = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -125,7 +128,7 @@ public class FormAlumnos extends javax.swing.JFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Lista de Alumnos"));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TablaTotalAlumnos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -136,7 +139,7 @@ public class FormAlumnos extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(TablaTotalAlumnos);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -185,7 +188,7 @@ public class FormAlumnos extends javax.swing.JFrame {
         // TODO add your handling code here:
         CAlumnos objetoAlumnos = new CAlumnos();
         objetoAlumnos.InsertarAlumno(txtnombre, txtapellido);
-        
+        objetoAlumnos.MostrarAlumnos(TablaTotalAlumnos);
         
     }//GEN-LAST:event_BtnguardarActionPerformed
 
@@ -226,6 +229,7 @@ public class FormAlumnos extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Btnguardar;
+    private javax.swing.JTable TablaTotalAlumnos;
     private javax.swing.JButton btneliminar;
     private javax.swing.JButton btnlimpiar;
     private javax.swing.JButton btnmodificar;
@@ -235,7 +239,6 @@ public class FormAlumnos extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField txtapellido;
     private javax.swing.JTextField txtid;
     private javax.swing.JTextField txtnombre;
