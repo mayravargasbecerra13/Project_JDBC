@@ -154,4 +154,23 @@ public class CAlumnos {
             JOptionPane.showMessageDialog(null, "Error al modificar El Alumno error:" + e.toString());
         }
         }
+    
+    public void EliminarAlumnos(JTextField paramCodigo, JTextField paramNombre, JTextField paramApellido){
+        setCodigo(Integer.parseInt(paramCodigo.getText()));
+        
+        CConexion objetoCConexion = new CConexion();
+        
+        String consulta = "DELETE FROM alumnosdos WHERE alumnosdos.id=?;";
+        
+        try {
+            CallableStatement cs = objetoCConexion.establecerConexion().prepareCall(consulta);
+            cs.setInt(1, getCodigo());
+            cs.execute();
+            
+            JOptionPane.showMessageDialog(null, "Se elimino correctamente el alumno");
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se puede eliminar, error:" + e.toString());
+        }
+    }
 }
