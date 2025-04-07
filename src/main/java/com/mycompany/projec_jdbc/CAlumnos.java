@@ -45,7 +45,7 @@ public class CAlumnos {
         setApellidoAlumno(paramApellidos.getText());
         
         CConexion objetoCConexion = new CConexion();
-       String consulta = "insert into alumnosdos(nombre, apellidos)values (?,?);";
+       String consulta = "insert into alumnosdos(nombres, apellidos)values (?,?);";
        
         try {
             CallableStatement cs = objetoCConexion.establecerConexion().prepareCall(consulta);
