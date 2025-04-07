@@ -16,6 +16,8 @@ public class FormAlumnos extends javax.swing.JFrame {
     
     public FormAlumnos() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        txtid.setEnabled(false);
         
         CAlumnos objetAlumnos = new CAlumnos();
         objetAlumnos.MostrarAlumnos(TablaTotalAlumnos);
@@ -66,6 +68,11 @@ public class FormAlumnos extends javax.swing.JFrame {
         });
 
         btnmodificar.setText("Modificar");
+        btnmodificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnmodificarActionPerformed(evt);
+            }
+        });
 
         btneliminar.setText("Eliminar");
 
@@ -139,6 +146,11 @@ public class FormAlumnos extends javax.swing.JFrame {
 
             }
         ));
+        TablaTotalAlumnos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TablaTotalAlumnosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(TablaTotalAlumnos);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -191,6 +203,17 @@ public class FormAlumnos extends javax.swing.JFrame {
         objetoAlumnos.MostrarAlumnos(TablaTotalAlumnos);
         
     }//GEN-LAST:event_BtnguardarActionPerformed
+
+    private void TablaTotalAlumnosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaTotalAlumnosMouseClicked
+      CAlumnos objetoAlumnos = new CAlumnos();
+      objetoAlumnos.SeleccionarAlumno(TablaTotalAlumnos, txtid, txtnombre, txtapellido);
+    }//GEN-LAST:event_TablaTotalAlumnosMouseClicked
+
+    private void btnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarActionPerformed
+     CAlumnos objetoAlumnos = new CAlumnos();
+     objetoAlumnos.ModificarAlumnos(txtid, txtnombre, txtapellido);
+     objetoAlumnos.MostrarAlumnos(TablaTotalAlumnos);
+    }//GEN-LAST:event_btnmodificarActionPerformed
 
     /**
      * @param args the command line arguments

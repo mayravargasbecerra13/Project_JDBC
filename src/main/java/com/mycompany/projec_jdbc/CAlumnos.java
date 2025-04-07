@@ -107,4 +107,51 @@ public class CAlumnos {
         }
     }
     
+    public void SeleccionarAlumno(JTable paramTablaAlumnos, JTextField paramID, JTextField paramNombres, JTextField paramApellidos){
+        
+        try {
+            
+            int fila = paramTablaAlumnos.getSelectedRow();
+            
+            if (fila>=0){
+             paramID.setText((String)(paramTablaAlumnos.getValueAt(fila, 0)));
+             paramNombres.setText((String) (paramTablaAlumnos.getValueAt(fila, 1)));
+             paramApellidos.setText((String)(paramTablaAlumnos.getValueAt(fila, 2)));
+             }
+            
+             else{
+             JOptionPane.showConfirmDialog(null, "Fila no seleccionada");
+             }
+            
+        } catch (Exception e) {
+            JOptionPane.showConfirmDialog(null, "Error:"+ e.toString());
+        }
+        
+        
+        
+    }
+    public void ModificarAlumnos(JTextField paramCodigo, JTextField paramNombres, JTextField paramApellidos){
+        setCodigo(Integer.parseInt(paramCodigo.getText()));
+        setNombreAlumno(paramNombres.getText());
+        setApellidoAlumno(paramApellidos.getText());
+        
+        CConexion objetoConexion = new CConexion();
+        
+        String consulta = "UPDATE alumnosdos SET alumnosdos.nombres =?, alumnosdos.apellidos =? WHERE alumnosdos.id=?;";
+        
+        try {
+            CallableStatement cs = objetoConexion.establecerConexion().prepareCall(consulta);
+            
+            cs.setString(1, getNombreAlumno());
+            cs.setString(2, getApellidoAlumno());
+            cs.setInt(3, getCodigo());
+            
+            cs.execute();
+            
+            JOptionPane.showMessageDialog(null, "Modificación Exitosa");
+        } catch (Exception e) {
+            
+            JOptionPane.showMessageDialog(null, "Error al modificar El Alumno error:" + e.toString());
+        }
+        }
 }
